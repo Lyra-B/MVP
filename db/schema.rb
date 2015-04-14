@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414131025) do
+ActiveRecord::Schema.define(version: 20150414142306) do
+
+  create_table "coaches", force: :cascade do |t|
+    t.string   "first_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "last_name"
+  end
 
   create_table "fullcalendar_engine_event_series", force: :cascade do |t|
     t.integer  "frequency",  default: 1
@@ -35,5 +42,23 @@ ActiveRecord::Schema.define(version: 20150414131025) do
   end
 
   add_index "fullcalendar_engine_events", ["event_series_id"], name: "index_fullcalendar_engine_events_on_event_series_id"
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "description"
+    t.integer  "coach_id"
+    t.integer  "school_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
