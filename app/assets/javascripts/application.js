@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require fullcalendar_engine/application
-//= require_tree ./libs
 //= require_tree .
