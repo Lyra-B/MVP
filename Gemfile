@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'fullcalendar_engine'
+gem 'fullcalendar_engine', git: 'git@github.com:Lyra-B/fullcalendar-rails-engine.git', branch: 'event_renaming'
+
+gem 'underscore-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
