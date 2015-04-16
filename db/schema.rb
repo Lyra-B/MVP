@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150415213826) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "coaches", force: :cascade do |t|
     t.string   "first_name"
     t.datetime "created_at", null: false
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150415213826) do
     t.integer  "session_series_id"
   end
 
-  add_index "fullcalendar_engine_sessions", ["session_series_id"], name: "index_fullcalendar_engine_sessions_on_session_series_id"
+  add_index "fullcalendar_engine_sessions", ["session_series_id"], name: "index_fullcalendar_engine_sessions_on_session_series_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
