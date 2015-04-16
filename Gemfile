@@ -6,6 +6,9 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
 gem 'pg'
+
+gem 'devise'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -26,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'fullcalendar_engine', git: 'git@github.com:Lyra-B/fullcalendar-rails-engine.git', branch: 'event_renaming'
 
 gem 'underscore-rails'
+
+gem 'haml-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
