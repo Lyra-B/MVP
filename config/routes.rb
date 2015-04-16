@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
+  resources :homepage, :only => [:index], :path => "/"
+
   mount FullcalendarEngine::Engine => "/calendar"
 
   # resources :sessions, :only => [:create]
