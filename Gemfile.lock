@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:Lyra-B/fullcalendar-rails-engine.git
-  revision: f248c602beec9c3ca3ef205c968f14c6af9490da
+  revision: e539a5dd51425d7a74752bbf594c5f9a730f6ce3
   branch: event_renaming
   specs:
     fullcalendar_engine (1.0.6)
