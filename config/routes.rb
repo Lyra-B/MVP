@@ -4,9 +4,15 @@ Rails.application.routes.draw do
 
   resources :homepage, :only => [:index], :path => "/"
 
+  resources :sessions, :only => [], :path => "/calendar/sessions" do
+    collection do
+      get :get_sessions
+    end
+  end
+
   mount FullcalendarEngine::Engine => "/calendar"
 
-  # resources :sessions, :only => [:create]
+  resource :dashboard, :only => :show
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
