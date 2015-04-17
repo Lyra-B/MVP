@@ -1,2 +1,2 @@
-class Coach < ActiveRecord::Base
+class Coach < User
 end
