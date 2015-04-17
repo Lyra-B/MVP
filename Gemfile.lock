@@ -1,7 +1,6 @@
 GIT
   remote: git@github.com:Lyra-B/fullcalendar-rails-engine.git
-  revision: f248c602beec9c3ca3ef205c968f14c6af9490da
-  branch: event_renaming
+  revision: 6bf027f125aa76c5edd0620052c56639311911e8
   specs:
     fullcalendar_engine (1.0.6)
       rails (>= 4.0.0)
