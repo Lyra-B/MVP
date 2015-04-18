@@ -2,13 +2,13 @@ class SessionsController < FullcalendarEngine::SessionsController
   def get_sessions
     start_time = Time.at(params[:start].to_i).to_formatted_s(:db)
     end_time   = Time.at(params[:end].to_i).to_formatted_s(:db)
-
     @sessions = Session.where('
                 (starttime >= :start_time and endtime <= :end_time) or
                 (starttime >= :start_time and endtime > :end_time and starttime <= :end_time) or
                 (starttime <= :start_time and endtime >= :start_time and endtime <= :end_time) or
                 (starttime <= :start_time and endtime > :end_time)',
                 start_time: start_time, end_time: end_time)
+
     if user_signed_in?
       if current_user.type == "Coach"
         @sessions = @sessions.where(coach_id: current_user.id)
