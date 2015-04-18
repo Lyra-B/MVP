@@ -32,6 +32,8 @@ gem 'underscore-rails'
 
 gem 'haml-rails'
 
+gem 'foundation-rails'
+
 
 
 # Use ActiveModel has_secure_password
