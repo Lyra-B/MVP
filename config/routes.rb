@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :sessions, :only => [], :path => "calendar/sessions" do
     collection do
+      post :create
       get :get_sessions
     end
   end
