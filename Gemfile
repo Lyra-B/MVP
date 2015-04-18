@@ -32,6 +32,8 @@ gem 'underscore-rails'
 
 gem 'haml-rails'
 
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -57,7 +59,7 @@ group :development, :test do
 
   gem 'launchy'
 
-  gem "database_cleaner"
+  gem 'database_cleaner', git: 'git@github.com:DatabaseCleaner/database_cleaner.git'
 
   gem 'factory_girl_rails'
 end
