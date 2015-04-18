@@ -13,10 +13,18 @@
 #   <<: *default
 #   database: db/development.sqlite3
 
+
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: mvpsuperstar_production
+  pool: 5
+
 development:
   adapter: postgresql
   encoding: unicode
-  database: development
+  database: mvpsuperstar_development
   pool: 5
 
 
@@ -34,7 +42,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: test
+  database: mvpsuperstar_test
   pool: 5
 
 cucumber:
