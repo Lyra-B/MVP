@@ -1,4 +1,5 @@
 class SessionsController < FullcalendarEngine::SessionsController
+
   def get_sessions
     start_time = Time.at(params[:start].to_i).to_formatted_s(:db)
     end_time   = Time.at(params[:end].to_i).to_formatted_s(:db)
@@ -16,21 +17,24 @@ class SessionsController < FullcalendarEngine::SessionsController
         @sessions = @sessions.where(administrator_id: current_user.id)
       end
     end
+
     sessions = []
     @sessions.each do |session|
-    sessions << { id: session.id,
-                  title: session.title,
-                  description: session.description || '',
-                  start: session.starttime.iso8601,
-                  end: session.endtime.iso8601,
-                  allDay: session.all_day,
-                  recurring: (session.session_series_id) ? true : false }
+      sessions << { id: session.id,
+                    title: session.title,
+                    description: session.description || '',
+                    start: session.starttime.iso8601,
+                    end: session.endtime.iso8601,
+                    allDay: session.all_day,
+                    recurring: (session.session_series_id) ? true : false }
     end
+
     render :json => sessions.to_json
   end
 
-  private
+  protected
   def determine_session_type
+    binding.pry
     if params[:session][:period] == "Does not repeat"
       @session = Session.new(session_params)
       if user_signed_in?
