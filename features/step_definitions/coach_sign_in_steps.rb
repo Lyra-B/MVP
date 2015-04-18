@@ -1,4 +1,4 @@
-Given(/^there are some coaches$/) do
+Given(/^there is at least a coach$/) do
   @coach = FactoryGirl.create(:coach)
 end
 

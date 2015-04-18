@@ -1,6 +1,6 @@
 Feature: Coach sign in
   Scenario: A coach signs in
-    Given there are some coaches
+    Given there is at least a coach
       And I am in the homepage
       And I sign in
     When I enter my details as a coach
