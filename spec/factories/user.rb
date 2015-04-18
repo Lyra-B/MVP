@@ -1,15 +1,19 @@
 FactoryGirl.define do
   factory :user do
     factory :coach do
+      firstname "James"
+      lastname "Brown"
       email "james@mail.com"
       password "password"
-      type "coach"
+      type "Coach"
     end
 
     factory :administrator do
+      firstname "Derek"
+      lastname "Brown"
       email "derek@mail.com"
       password "password"
-      type "administrator"
+      type "Administrator"
     end
   end
 end
