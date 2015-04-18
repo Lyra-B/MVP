@@ -8,7 +8,12 @@
 #create_session_dialog.dialog{:style => "display:none"}
 #session_desc_dialog.dialog{:style => "display:none"}
 
-= render @coaches
+%button.button.dropdown{"aria-controls" => "drop1", "aria-expanded" => "false", "data-dropdown" => "drop1", :href => "#"} Coaches
+%br
+%ul#drop1.f-dropdown{"aria-hidden" => "true", "data-dropdown-content" => ""}
+
+  = render @coaches
+
 
 
 
