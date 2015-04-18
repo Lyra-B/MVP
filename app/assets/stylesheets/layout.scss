@@ -5,10 +5,6 @@
   font-size: 2em;
 };
 
-li + li::before {
-  content: " | ";
-}
-
 .navbar {
   float:right;
   background-color: #000000;
