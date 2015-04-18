@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Lyra-B/fullcalendar-rails-engine.git
-  revision: 66acf58a352f25848b09b70874cf802ba9055852
+  revision: 0f6bf99239ee20bb85fc16190793d7cd44654919
   specs:
     fullcalendar_engine (1.0.6)
       rails (>= 4.0.0)
