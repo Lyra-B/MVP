@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'fullcalendar_engine', git: 'git@github.com:Lyra-B/fullcalendar-rails-engine.git'
+gem 'fullcalendar_engine', git: 'https://github.com/Lyra-B/fullcalendar-rails-engine.git'
 
 gem 'underscore-rails'
 
