@@ -15,6 +15,5 @@ RSpec.describe User, type: :model do
       expect(@coach.availability(@basketball.starttime, @basketball.endtime)).to be false
       expect(@coach.availability(@volleyball.starttime, @volleyball.endtime)).to be false
     end
-
   end
 end
