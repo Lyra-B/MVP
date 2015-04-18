@@ -1,8 +1,11 @@
 = link_to "Create event", "#", :id => "new_session"
+%h1
+  = "Welcome #{current_user.firstname}"
 
 %div
   .calendar
 
 #create_session_dialog.dialog{:style => "display:none"}
 #session_desc_dialog.dialog{:style => "display:none"}
+
 
