@@ -31,6 +31,15 @@ class SessionsController < FullcalendarEngine::SessionsController
     render :json => sessions.to_json
   end
 
+  def assign_coach
+    @session = Session.find(params[:id])
+    @coach = Coach.find(params[:coach_id])
+    if @coach.availability(@session)
+      @session.update_attributes(:coach_id => @coach.id)
+    end
+    render :nothing => true
+  end
+
   protected
   def determine_session_type
     if params[:session][:period] == "Does not repeat"
@@ -45,5 +54,9 @@ class SessionsController < FullcalendarEngine::SessionsController
     else
       @session = SessionSeries.new(session_params)
     end
+  end
+
+  def session_params
+    params.require(:session).permit('title', 'description', 'starttime', 'endtime', 'all_day', 'period', 'frequency', 'commit_button', 'coach_id', 'administrator_id')
   end
 end

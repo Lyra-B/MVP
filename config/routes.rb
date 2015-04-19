@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       post :create
       get :get_sessions
     end
+    member do
+      put :assign_coach
+    end
   end
 
   mount FullcalendarEngine::Engine => "/calendar"

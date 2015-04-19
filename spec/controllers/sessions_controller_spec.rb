@@ -108,5 +108,50 @@ RSpec.describe SessionsController, type: :controller do
         expect(assigns[:sessions].first.administrator_id).to eq(@administrator.id)
       end
     end
+
+    describe "#Assign_coach" do
+      before do
+        @coach = FactoryGirl.create(:coach)
+        @session_1 = FactoryGirl.create(:session, starttime: "Sun, 19 Apr 2015 08:15:00 UTC +00:00", endtime: "Sun, 19 Apr 2015 09:15:00 UTC +00:00", coach_id: @coach.id)
+        @session_2 = FactoryGirl.create(:session, title:"Baseball", starttime: "Sun, 19 Apr 2015 10:10:00 UTC +00:00", endtime: "Sun, 19 Apr 2015 11:00:00 UTC +00:00")
+        @session_3 = FactoryGirl.create(:session, title:"Basketball", starttime: "Sun, 19 Apr 2015 08:20:00 UTC +00:00", endtime: "Sun, 19 Apr 2015 09:10:00 UTC +00:00")
+      end
+      describe "assign available coach to session" do
+        before do
+          params = {
+            id: @session_2.id,
+            coach_id: @coach.id
+          }
+          put :assign_coach, params
+        end
+
+        it "should respond with 200" do
+          expect(response.status).to eq(200)
+        end
+
+        it "should add coach_id" do
+          expect(assigns(:session).coach_id).to eq(@coach.id)
+        end
+      end
+
+      describe "not assign unavailable coach to session" do
+        before do
+          params = {
+            id:@session_3.id,
+            coach_id: @coach.id
+          }
+          put :assign_coach, params
+        end
+
+        it "should respond with 200" do
+          expect(response.status).to eq(200)
+        end
+
+        it "should be unable to add coach_id" do
+          expect(assigns(:session).coach_id).not_to eql @coach.id
+        end
+      end
+
+    end
   end
 end
