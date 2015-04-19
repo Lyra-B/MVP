@@ -11,9 +11,9 @@ RSpec.describe User, type: :model do
     end
 
     it "should show if a coach is available or not in a given date range" do
-      expect(@coach.availability(@baseball.starttime, @baseball.endtime)).to be true
-      expect(@coach.availability(@basketball.starttime, @basketball.endtime)).to be false
-      expect(@coach.availability(@volleyball.starttime, @volleyball.endtime)).to be false
+      expect(@coach.availability(@baseball)).to be true
+      expect(@coach.availability(@basketball)).to be false
+      expect(@coach.availability(@volleyball)).to be false
     end
   end
 end

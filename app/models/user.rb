@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
 
 
-  def availability(starting, ending)
+  def availability(session)
+    starting = session.starttime
+    ending = session.endtime
     sessions = FullcalendarEngine::Session.where(coach_id:self.id)
     booleans = []
     sessions.map do |s|
