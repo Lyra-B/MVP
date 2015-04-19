@@ -10,10 +10,12 @@ class User < ActiveRecord::Base
     sessions = FullcalendarEngine::Session.where(coach_id:self.id)
     booleans = []
     sessions.map do |s|
-      unless starting.between?(s.starttime, s.endtime) || ending.between?(s.starttime, s.endtime) || (s.starttime - ending) * (starting - s.endtime) >= 0
-        booleans.push(true)
-      else
+      if starting.between?(s.starttime, s.endtime) ||
+        ending.between?(s.starttime, s.endtime) ||
+        (s.starttime - ending) * (starting - s.endtime) >= 0
         booleans.push(false)
+      else
+        booleans.push(true)
       end
     end
     !booleans.include? false
