@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get :get_sessions
     end
     member do
-      put :assign_coach
+      put "/assign_coach/:coach_id", to: "sessions#assign_coach"
     end
   end
 
