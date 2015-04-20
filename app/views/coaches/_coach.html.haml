@@ -1,3 +1,3 @@
-%li{ :data => {:coach_id => "#{coach.id}"} }
+%li{ :data => {:coach_id => "#{coach.id}", :firstname => "#{coach.firstname}", :lastname => "#{coach.lastname}"} }
   %a{:href => "#"}
-    = "#{coach.firstname} #{coach.lastname}"
+  = "#{coach.firstname} #{coach.lastname}"
