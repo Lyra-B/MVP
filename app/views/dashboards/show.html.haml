@@ -13,11 +13,13 @@
   %h2.content
   %a.close-reveal-modal{"aria-label" => "Close"} ×
 
-%button.button.dropdown{"aria-controls" => "drop1", "aria-expanded" => "false", "data-dropdown" => "drop1", :href => "#"} Coaches
-%br
-%ul#drop1.f-dropdown{"aria-hidden" => "true", "data-dropdown-content" => ""}
+- if current_user.administrator?
 
-  = render @coaches
+  %button.button.dropdown{"aria-controls" => "drop1", "aria-expanded" => "false", "data-dropdown" => "drop1", :href => "#"} Coaches
+  %br
+  %ul#drop1.f-dropdown{"aria-hidden" => "true", "data-dropdown-content" => ""}
+
+    = render @coaches
 
 
 
