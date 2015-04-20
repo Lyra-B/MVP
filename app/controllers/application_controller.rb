@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     dashboard_path
   end
+
+  def authorize_admin
+    redirect_to request.url if !current_user.administrator?
+  end
 end
