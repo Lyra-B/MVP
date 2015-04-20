@@ -7,6 +7,7 @@ $(document).ready(function(){
   var options = {
     sessionRender: function(session, element) {
       element.data("session_id", session.id);
+      // element.append("<p class = 'assigned-coach'></p>");
     }
   };
   //include these options to the gem's settings
@@ -38,12 +39,15 @@ $(document).ready(function(){
             success: function(response){
               //Check coach availability
               if(response === true){
-                alert("Successfully assigned session");
-                $(_this).find(".assigned-coach").remove();
-                $(_this).find(".fc-session-inner").append("<p class = 'assigned-coach'>Assigned to " + coachFirstName + " " + coachLastName + "</p>");
+                $('#assign-modal').find(".content").replaceWith("<h2 class='content'>Successfully assigned session to " + coachFirstName + " " + coachLastName + "</h2>");
+                $('a.reveal-link').trigger('click');
+                //alert("Successfully assigned session to " + coachFirstName + " " + coachLastName);
+                // $(_this).find(".assigned-coach").empty();
+                // $(_this).find(".assigned-coach").html(coachFirstName + " " + coachLastName);
               }
               else{
-                alert("Coach unavailable!");
+                $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + coachFirstName + " " + coachLastName + " is not available at this period </h2>");
+                $('a.reveal-link').trigger('click');
               }
             }
           });
