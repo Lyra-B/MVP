@@ -1,4 +1,7 @@
 class SessionsController < FullcalendarEngine::SessionsController
+
+  before_filter :authorize_admin, only: :assign_coach
+
   def get_sessions
     start_time = Time.at(params[:start].to_i).to_formatted_s(:db)
     end_time   = Time.at(params[:end].to_i).to_formatted_s(:db)
