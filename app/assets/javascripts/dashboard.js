@@ -22,26 +22,34 @@ $(document).ready(function(){
     helper: "clone", // duplicates the element to use in both places
     start: function(event, ui){
       var sessions = $(".fc-session"); // sessions
-      var coachId = $(this).data("coach-id");
-      console.log("hello");
+      var coachId = $(this).data("coach-id"); //retrieve coach id from the data attribute
+      coachFirstName = $(this).data("firstname");
+      coachLastName = $(this).data("lastname");
+
       sessions.droppable({
         accept: "#drop1 > li",
         activeClass: "ui-state-highlight",
         drop: function(event, ui) {
-          // console.log("");
-          var sessionId = $(this).data("session_id");
+          var _this = this;
+          var sessionId = $(this).data("session_id"); //retrieve session id from the data attribute
           $.ajax({
             method:"PUT",
-            url: "/calendar/sessions/" + sessionId + "/assign_coach/" + coachId,
-            success: function(){
-              alert("Dropped");
+            url: "/calendar/sessions/" + sessionId + "/assign_coach/" + coachId, //the url derives from routes nesting of the sessions
+            success: function(response){
+              //Check coach availability
+              if(response === true){
+                alert("Successfully assigned session");
+                $(_this).find(".assigned-coach").remove();
+                $(_this).find(".fc-session-inner").append("<p class = 'assigned-coach'>Assigned to " + coachFirstName + " " + coachLastName + "</p>");
+              }
+              else{
+                alert("Coach unavailable!");
+              }
             }
           });
         }
       });
     }
-
-
   });
 
 });
