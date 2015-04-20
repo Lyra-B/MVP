@@ -34,10 +34,12 @@ class SessionsController < FullcalendarEngine::SessionsController
   def assign_coach
     @session = Session.find(params[:id])
     @coach = Coach.find(params[:coach_id])
-    if @coach.availability(@session)
+    if available?
+      render :json => available?
       @session.update_attributes(:coach_id => @coach.id)
+    else
+      render :json => available?
     end
-    render :nothing => true
   end
 
   protected
@@ -58,5 +60,9 @@ class SessionsController < FullcalendarEngine::SessionsController
 
   def session_params
     params.require(:session).permit('title', 'description', 'starttime', 'endtime', 'all_day', 'period', 'frequency', 'commit_button', 'coach_id', 'administrator_id')
+  end
+
+  def available?
+    @coach.availability(@session)
   end
 end
