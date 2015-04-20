@@ -25,10 +25,13 @@ class SessionsController < FullcalendarEngine::SessionsController
       sessions << { id: session.id,
                     title: session.title,
                     description: session.description || '',
+                    coachId: session.coach_id,
+                    color: session.color_state,
                     start: session.starttime.iso8601,
                     end: session.endtime.iso8601,
                     allDay: session.all_day,
                     recurring: (session.session_series_id) ? true : false }
+
     end
 
     render :json => sessions.to_json

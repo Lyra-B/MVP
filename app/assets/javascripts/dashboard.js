@@ -7,8 +7,8 @@ $(document).ready(function(){
   var options = {
     sessionRender: function(session, element) {
       element.data("session_id", session.id);
-      // element.data("session_coach_id", session.coach_id);
-      // element.append("<p class = 'assigned-coach'></p>");
+      element.data("coach_id", session.coachId);
+      element.css({backgroundColor: session.color});
     }
   };
   //include these options to the gem's settings
@@ -34,29 +34,24 @@ $(document).ready(function(){
         drop: function(event, ui) {
           var _this = this;
           var sessionId = $(this).data("session_id"); //retrieve session id from the data attribute
-          //var sessionCoachId = $(this).data("session_coach_id");
+          var sessionCoachId = $(this).data("coach_id");
           $.ajax({
             method:"PUT",
             url: "/calendar/sessions/" + sessionId + "/assign_coach/" + coachId, //the url derives from routes nesting of the sessions
             success: function(response){
               //Check coach availability
               if(response === true){
-                // if(coachId === sessionCoachId){
-                //   $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + coachFirstName + " " + coachLastName + "already assigned to this session! </h2>");
-                //   $('a.reveal-link').trigger('click');
-                // }
-                // else {
-                $('#assign-modal').find(".content").replaceWith("<h2 class='content'>Successfully assigned session to " + coachFirstName + " " + coachLastName + "</h2>");
-                $('a.reveal-link').trigger('click');
-                // }
-                //alert("Successfully assigned session to " + coachFirstName + " " + coachLastName);
-                // $(_this).find(".assigned-coach").empty();
-                // $(_this).find(".assigned-coach").html(coachFirstName + " " + coachLastName);
+                $('#assign-modal').find(".content").replaceWith("<h2 class='content'> Successfully assigned session to " + coachFirstName + " " + coachLastName + "</h2>");
               }
-              else{
+              else {
+                if(coachId == sessionCoachId) {
+                  $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + coachFirstName + " " + coachLastName + " is already assigned to this session! </h2>");
+                }
+                else {
                 $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + coachFirstName + " " + coachLastName + " is not available at this period </h2>");
-                $('a.reveal-link').trigger('click');
+                }
               }
+              $('a.reveal-link').trigger('click');
             }
           });
         }

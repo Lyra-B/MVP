@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417082641) do
+ActiveRecord::Schema.define(version: 20150420155446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150417082641) do
     t.integer  "session_series_id"
     t.integer  "coach_id"
     t.integer  "administrator_id"
+    t.string   "color"
   end
 
   add_index "fullcalendar_engine_sessions", ["session_series_id"], name: "index_fullcalendar_engine_sessions_on_session_series_id", using: :btree
