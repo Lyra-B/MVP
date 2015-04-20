@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users#, :administrators, :coaches
+  devise_for :users, :administrators, :coaches
 
   root 'homepage#index'
 
