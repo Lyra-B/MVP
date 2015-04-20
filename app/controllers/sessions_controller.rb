@@ -68,4 +68,8 @@ class SessionsController < FullcalendarEngine::SessionsController
   def available?
     @coach.availability(@session)
   end
+
+  def authorize_admin
+    redirect_to request.url if !current_user.administrator?
+  end
 end
