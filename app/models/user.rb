@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :sessions
 
+  def administrator?
+    true if self.type == "Administrator"
+  end
+
 
   def availability(session)
     starting = session.starttime
