@@ -14,12 +14,18 @@ class Session < FullcalendarEngine::Session
     Assignment.create(coach_id:self.coach_id, session_id:self.id)
   end
 
+  def awaiting_confirmation?
+    true if self.assignments.length != 0 && self.assignments.first.status == "waiting"
+  end
+
   def assigned?
-    true unless self.coach_id == nil
+    true unless self.coach_id == nil || self.awaiting_confirmation?
   end
 
   def color_state
-    if self.assigned?
+    if self.awaiting_confirmation?
+      self.color = "#FABE4D"
+    elsif self.assigned?
       self.color = "#4DFA90"
     else
       self.color = "#FF5468"
