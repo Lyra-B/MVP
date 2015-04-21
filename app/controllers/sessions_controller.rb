@@ -44,6 +44,7 @@ class SessionsController < FullcalendarEngine::SessionsController
     if available?
       render :json => available?
       @session.update_attributes(:coach_id => @coach.id)
+      @session.send_invite
     else
       render :json => available?
     end

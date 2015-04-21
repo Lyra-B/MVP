@@ -1,5 +1,6 @@
 class Session < FullcalendarEngine::Session
   belongs_to :user
+  has_many :assignments
 
   def coach_name
     if self.coach_id
@@ -7,6 +8,10 @@ class Session < FullcalendarEngine::Session
     else
       "Assign this session to a coach"
     end
+  end
+
+  def send_invite
+    Assignment.create(coach_id:self.coach_id, session_id:self.id)
   end
 
   def assigned?
