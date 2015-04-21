@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420155446) do
+ActiveRecord::Schema.define(version: 20150421103004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer  "coach_id"
+    t.integer  "administrator_id"
+    t.integer  "session_id"
+    t.string   "status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "fullcalendar_engine_session_series", force: :cascade do |t|
     t.integer  "frequency",  default: 1
