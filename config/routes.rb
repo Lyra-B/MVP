@@ -15,8 +15,4 @@ Rails.application.routes.draw do
       put "/assign_coach/:coach_id", to: "sessions#assign_coach"
     end
   end
-
-  mount FullcalendarEngine::Engine => "/calendar"
-
-  resource :dashboard, :only => :show
 end
