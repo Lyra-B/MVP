@@ -135,6 +135,9 @@ RSpec.describe SessionsController, type: :controller do
 
         it "should send an invite" do
           expect(@session_2.assignments.count).to eq(1)
+          expect(@coach.assignments.count).to eq(1)
+          expect(@session_2.assignments.first.status).to eq("waiting")
+          expect(@coach.assignments.first.status).to eq("waiting")
         end
       end
 
@@ -157,6 +160,7 @@ RSpec.describe SessionsController, type: :controller do
 
         it "should not send an invite" do
           expect(@session_3.assignments.count).to eq(0)
+          expect(@coach.assignments.count).to eq(0)
         end
       end
 
