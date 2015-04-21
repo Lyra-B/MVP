@@ -8,7 +8,9 @@ $(document).ready(function(){
     sessionRender: function(session, element) {
       element.data("session_id", session.id);
       element.data("coach_id", session.coachId);
+      element.data("coach", session.coach);
       element.css({backgroundColor: session.color});
+      element.find('.fc-session-inner').append("<div id='fc-session-coach-name'> Assigned to:" + session.coach + "</div>");
     }
   };
   //include these options to the gem's settings
@@ -52,6 +54,7 @@ $(document).ready(function(){
                 }
               }
               $('a.reveal-link').trigger('click');
+              $('.calendar').fullCalendar( 'refetchSessions' );
             }
           });
         }
