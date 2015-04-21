@@ -25,6 +25,7 @@ class SessionsController < FullcalendarEngine::SessionsController
       sessions << { id: session.id,
                     title: session.title,
                     description: session.description || '',
+                    coach: session.coach_name ,
                     coachId: session.coach_id,
                     color: session.color_state,
                     start: session.starttime.iso8601,
