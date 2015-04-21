@@ -21,6 +21,11 @@
 
     = render @coaches
 
+- if current_user.administrator? == false
+  - binding.pry
+  = current_user.assignments.each do |a|
+    = render @assignment if current_user.assignments
+
 
 
 
