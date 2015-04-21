@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
     true if self.type == "Administrator"
   end
 
+  def assignments
+    Assignment.where(:coach_id => self.id)
+  end
 
   def availability(session)
     starting = session.starttime
