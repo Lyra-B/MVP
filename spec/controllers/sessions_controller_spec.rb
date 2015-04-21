@@ -132,6 +132,10 @@ RSpec.describe SessionsController, type: :controller do
         it "should add coach_id" do
           expect(assigns(:session).coach_id).to eq(@coach.id)
         end
+
+        it "should send an invite" do
+          expect(@session_2.assignments.count).to eq(1)
+        end
       end
 
       describe "not assign unavailable coach to session" do
@@ -149,6 +153,10 @@ RSpec.describe SessionsController, type: :controller do
 
         it "should be unable to add coach_id" do
           expect(assigns(:session).coach_id).not_to eql @coach.id
+        end
+
+        it "should not send an invite" do
+          expect(@session_3.assignments.count).to eq(0)
         end
       end
 
