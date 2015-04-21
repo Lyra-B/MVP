@@ -1,6 +1,14 @@
 class Session < FullcalendarEngine::Session
   belongs_to :user
 
+  def coach_name
+    if self.coach_id
+      "#{Coach.find(self.coach_id).firstname} #{Coach.find(self.coach_id).lastname}"
+    else
+      "Assign this session to a coach"
+    end
+  end
+
   def assigned?
     true unless self.coach_id == nil
   end
