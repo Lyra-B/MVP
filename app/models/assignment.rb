@@ -10,4 +10,16 @@ class Assignment < ActiveRecord::Base
   def set_default_status
     self.status = "waiting"
   end
+
+  # def accepted?
+
+  # end
+
+  def accept_or_decline
+    if accepted?
+      self.status = "accepted"
+    else
+      self.status = "declined"
+    end
+  end
 end
