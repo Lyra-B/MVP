@@ -15,11 +15,19 @@ class Session < FullcalendarEngine::Session
   end
 
   def awaiting_confirmation?
-    true if self.assignments.length != 0 && self.assignments.first.status == "waiting"
+    true if self.assignments.length != 0 && self.assignments.last.status == "waiting"
+  end
+
+  def accepted?
+    true if self.assignments.length != 0 && self.assignments.last.accepted?
+  end
+
+  def declined?
+    true if self.assignments.length != 0 && self.assignments.last.declined?
   end
 
   def assigned?
-    true unless self.coach_id == nil || self.awaiting_confirmation?
+    true unless self.coach_id == nil || self.awaiting_confirmation? || self.declined?
   end
 
   def color_state
