@@ -13,18 +13,20 @@
   %h2.content
   %a.close-reveal-modal{"aria-label" => "Close"} ×
 
-- if current_user.administrator?
+- if current_user.coach?
+
+  %a.button{"data-dropdown" => "drop", "data-options" => "align:left", :href => "#"} Notifications »
+  %ul#drop.small.medium.large{:class => "[tiny content]f-dropdown", "data-dropdown-content" => ""}
+    - @assignments.each do |assignment|
+      = render assignment
+
+- elsif current_user.administrator?
 
   %button.button.dropdown{"aria-controls" => "drop1", "aria-expanded" => "false", "data-dropdown" => "drop1", :href => "#"} Coaches
   %br
   %ul#drop1.f-dropdown{"aria-hidden" => "true", "data-dropdown-content" => ""}
 
     = render @coaches
-
-- if current_user.administrator? == false
-  - binding.pry
-  = current_user.assignments.each do |a|
-    = render @assignment if current_user.assignments
 
 
 
