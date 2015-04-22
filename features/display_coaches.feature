@@ -1,4 +1,3 @@
-@wip
 Feature: Display Coaches
   Background:
     Given there are some administrators
