@@ -6,6 +6,13 @@ Rails.application.routes.draw do
 
   resource :dashboard, :only => :show
 
+  resources :assignments, :only => [] do
+    member do
+      put :accept_session
+      put :decline_session
+    end
+  end
+
   resources :sessions, :only => [], :path => "calendar/sessions" do
     collection do
       post :create
