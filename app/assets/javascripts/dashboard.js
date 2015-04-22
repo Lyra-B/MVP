@@ -3,6 +3,11 @@ $(document).ready(function(){
     FullcalendarEngine.Form.display();
     event.preventDefault();
   });
+
+  setInterval(function(){
+    $('.calendar').fullCalendar( 'refetchSessions' );
+  }, 60000);
+
   //set additional options for sessions
   var options = {
     sessionRender: function(session, element) {
@@ -61,7 +66,7 @@ $(document).ready(function(){
       });
     }
   });
-
+  $('.fc-header-title').hide();
 });
 
 
