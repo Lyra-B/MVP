@@ -13,9 +13,9 @@
 
   %body
     %header
-      %nav.navbar
-        %li Home
-        %li About
-        %li Contact
+      %nav.breadcrumbs
+        %a{:href => "#"} Home
+        %a{:href => "#"} About
+        %a{:href => "#"} Contact
     %main
       = yield

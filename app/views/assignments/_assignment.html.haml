@@ -1,5 +1,5 @@
-%li{:id => ["assignment", assignment.id], :data => {:session_id => "#{assignment.session}"} }
+%li{:class => "assignment", :id => ["assignment", assignment.id], :data => {:session_id => "#{assignment.session}"} }
   %span
     = "You have been assigned to #{assignment.session.title}"
-    = link_to "Accept", accept_session_assignment_path(assignment), :method => :put, :remote => true
-    = link_to "Decline", decline_session_assignment_path(assignment), :method => :put, :remote => true
+    = link_to "Accept", accept_session_assignment_path(assignment), :method => :put, :remote => true, :class => "accept"
+    = link_to "Decline", decline_session_assignment_path(assignment), :method => :put, :remote => true, :class => "decline"

@@ -15,8 +15,8 @@
 
 - if current_user.coach?
 
-  %a.button{"data-dropdown" => "drop", "data-options" => "align:left", :href => "#"} Notifications »
   %ul#drop.small.medium.large{:class => "[tiny content]f-dropdown", "data-dropdown-content" => ""}
+    Notifications
     - @assignments.each do |assignment|
       = render assignment
 
