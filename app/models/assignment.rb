@@ -6,20 +6,20 @@ class Assignment < ActiveRecord::Base
 
   before_create :set_default_status
 
+  validates :session_id, presence: true
+  validates :coach_id, presence: true
+
 
   def set_default_status
     self.status = "waiting"
   end
 
-  # def accepted?
 
-  # end
+  def accepted?
+    true if self.status == "accepted"
+  end
 
-  def accept_or_decline
-    if accepted?
-      self.status = "accepted"
-    else
-      self.status = "declined"
-    end
+  def declined?
+    true if self.status == "declined"
   end
 end
