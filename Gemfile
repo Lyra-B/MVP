@@ -67,5 +67,7 @@ group :development, :test do
   gem 'database_cleaner', git: 'git@github.com:DatabaseCleaner/database_cleaner.git'
 
   gem 'factory_girl_rails'
+
+  gem 'selenium-webdriver', '~> 2.45.0'
 end
 
