@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     true if self.type == "Administrator"
   end
 
+  def coach?
+    true if self.type == "Coach"
+  end
+
   def assignments
     Assignment.where(:coach_id => self.id)
   end
