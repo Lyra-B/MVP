@@ -1,3 +1,7 @@
+html, body {
+  background-color: #333333;
+}
+
 .navbar li {
   text-decoration: none;
   color: #fff;
@@ -5,18 +9,57 @@
   font-size: 2em;
 };
 
-.navbar {
-  float:right;
-  background-color: #000000;
-  list-style-type: none;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 10px;
+.breadcrumbs {
+  background-color: #EB65A0;
+}
+
+.breadcrumbs a {
+  color: #FFFFFF;
 }
 
 main {
   clear: both;
 }
+
+.calendar {
+  display: inline-block;
+}
+
+button.dropdown {
+  max-width: 70%;
+  margin-top: 10px;
+  clear:both;
+}
+
+.inline {
+  display: inline-block;
+  position: absolute;
+}
+
+.image {
+  max-width: 70%
+}
+
+.fc-header {
+  background-color: #9B539C;
+}
+
+.fc-session-container {
+  background-color: #9B539C;
+}
+
+main {
+  background: rgba(179,220,237,1);
+  background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 26%, rgba(115,197,225,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(26%, rgba(179,220,237,1)), color-stop(100%, rgba(115,197,225,1)));
+  background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 26%, rgba(115,197,225,1) 100%);
+  background: -o-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 26%, rgba(115,197,225,1) 100%);
+  background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 26%, rgba(115,197,225,1) 100%);
+  background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(179,220,237,1) 26%, rgba(115,197,225,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#73c5e1', GradientType=0 );
+}
+
+
 
 
 
