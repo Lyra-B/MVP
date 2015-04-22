@@ -1,11 +1,17 @@
 $(document).ready(function(){
   $('.assignment').find('.accept').click(function(){
     $( this ).parent().slideUp();
-    $('.calendar').fullCalendar( 'refetchSessions' );
+    setTimeout(function(){
+      $('.calendar').fullCalendar( 'refetchSessions' );
+    }, 3000);
+
   });
 
   $('.assignment').find('.decline').click(function(){
     $( this ).parent().slideUp();
-    $('.calendar').fullCalendar( 'refetchSessions' );
+    setTimeout(function(){
+      $('.calendar').fullCalendar( 'refetchSessions' );
+    }, 3000);
+
   });
 });
