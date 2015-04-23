@@ -1,28 +1,18 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We Got Coders 2015 Final Project - MVPSuperstar
 
-Things you may want to cover:
+A Ruby on Rails app which serves as a coach management tool which enables administrators and coaches to organize their work.
 
-* Ruby version
+Gems used:
+fullcalendar-rails-engine(https://github.com/vinsol/fullcalendar-rails-engine), forked and modified here(https://github.com/Lyra-B/fullcalendar-rails-engine),
+jquery-rails, devise, haml-rails, foundation-rails, factory_girl_rails, database_cleaner, cucumber-rails, rspec-rails, launchy
 
-* System dependencies
+Pivotal Tracker:
+https://www.pivotaltracker.com/n/projects/1321910
 
-* Configuration
+Heroku deployment:
+https://shielded-oasis-1789.herokuapp.com/dashboard,
+(login for admin "derek@mail.com", "11111111"),
+(login for coach "james@mail.com", "11111111")
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
