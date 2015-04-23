@@ -19,6 +19,7 @@ html, body {
 
 main {
   clear: both;
+  min-height: 500px;
 }
 
 .calendar {
@@ -40,13 +41,39 @@ button.dropdown {
   max-width: 70%
 }
 
+select {
+  max-width: 15%;
+}
+
+#session_period {
+  max-width: 30%
+}
+
+
 .fc-header {
-  background-color: #9B539C;
+  background-color: #008CBA;
 }
 
 .fc-session-container {
   background-color: #9B539C;
 }
+
+#user_email {
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+#user_password {
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+.form_container {
+  margin:0 auto;
+  width:30%;
+  text-align:left;
+}
+
 
 main {
   background: rgba(179,220,237,1);
