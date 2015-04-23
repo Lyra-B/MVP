@@ -11,7 +11,8 @@ class Session < FullcalendarEngine::Session
   end
 
   def send_invite
-    Assignment.create(coach_id:self.coach_id, session_id:self.id)
+    Assignment.create!(coach_id:self.coach_id, session_id:self.id)
+    Assignment.where(session_id:self.id).each{|a| a.destroy unless Assignment.where(session_id:self.id).last}
   end
 
   def awaiting_confirmation?
