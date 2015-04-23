@@ -6,7 +6,7 @@ $(document).ready(function(){
 
   setInterval(function(){
     $('.calendar').fullCalendar( 'refetchSessions' );
-  }, 60000);
+  }, 10000);
 
   //set additional options for sessions
   var options = {
