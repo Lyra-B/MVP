@@ -1,7 +1,7 @@
 $(document).ready(function(){
-  // setTimeout(function(){
-  //   $('.calendar').fullCalendar( 'refetchSessions' );
-  // }, 10000);
+  setTimeout(function(){
+    $('.calendar').fullCalendar( 'refetchSessions' );
+  }, 20000);
 
   $('.assignment').find('.accept').click(function(){
     $( this ).parent().slideUp();
