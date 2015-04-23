@@ -67,5 +67,7 @@ group :development, :test do
   gem 'database_cleaner', git: 'git@github.com:DatabaseCleaner/database_cleaner.git'
 
   gem 'factory_girl_rails'
+
+  gem 'simplecov', :require => false
 end
 
