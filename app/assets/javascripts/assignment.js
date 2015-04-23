@@ -4,7 +4,7 @@ $(document).ready(function(){
   }, 20000);
 
   $('.assignment').find('.accept').click(function(){
-    $( this ).parent().slideUp();
+    $( this ).parent().slideUp(); // removes the assignment from the DOM after it accept or decline is clicked
     setTimeout(function(){
       $('.calendar').fullCalendar( 'refetchSessions' );
     }, 3000);

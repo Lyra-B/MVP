@@ -4,6 +4,7 @@ $(document).ready(function(){
     event.preventDefault();
   });
 
+  // refresh the sessions constantly so as to monitor state changes
   setInterval(function(){
     $('.calendar').fullCalendar( 'refetchSessions' );
   }, 10000);
@@ -47,7 +48,7 @@ $(document).ready(function(){
             url: "/calendar/sessions/" + sessionId + "/assign_coach/" + coachId, //the url derives from routes nesting of the sessions
             success: function(response){
               //Check coach availability
-              if(response === true){
+              if(response === true){ // response decides about the availability of a coach
                 $('#assign-modal').find(".content").replaceWith("<h2 class='content'> Successfully assigned session to " + coachFirstName + " " + coachLastName + "</h2>");
               }
               else {
@@ -60,13 +61,14 @@ $(document).ready(function(){
               }
               $('a.reveal-link').trigger('click');
               $('.calendar').fullCalendar( 'refetchSessions' );
+              //refetch sessions so as to see the state of the session just assigned to a coach
             }
           });
         }
       });
     }
   });
-  $('.fc-header-title').hide();
+  $('.fc-header-title').hide(); // hid the title in favor of design
 });
 
 

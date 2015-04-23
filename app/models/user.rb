@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :sessions
   has_many :assignments
 
+  #STI
+
   def administrator?
     true if self.type == "Administrator"
   end
@@ -19,6 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def availability(session)
+    #check the availability of a coach
     starting = session.starttime
     ending = session.endtime
     sessions = FullcalendarEngine::Session.where(coach_id:self.id)

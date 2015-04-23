@@ -14,6 +14,7 @@ class Assignment < ActiveRecord::Base
     self.status = "waiting"
   end
 
+  #methods that are used by the Session model to define the state of their assignments.
 
   def accepted?
     true if self.status == "accepted"
