@@ -7,7 +7,7 @@ $(document).ready(function(){
   // refresh the sessions constantly so as to monitor state changes
   setInterval(function(){
     $('.calendar').fullCalendar( 'refetchSessions' );
-  }, 10000);
+  }, 30000);
 
   //set additional options for sessions
   var options = {
@@ -43,20 +43,23 @@ $(document).ready(function(){
           var _this = this;
           var sessionId = $(this).data("session_id"); //retrieve session id from the data attribute
           var sessionCoachId = $(this).data("coach_id");
+          var load_modal = function(message){
+            $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + message + "</h2>");
+          };
           $.ajax({
             method:"PUT",
             url: "/calendar/sessions/" + sessionId + "/assign_coach/" + coachId, //the url derives from routes nesting of the sessions
             success: function(response){
               //Check coach availability
               if(response === true){ // response decides about the availability of a coach
-                $('#assign-modal').find(".content").replaceWith("<h2 class='content'> Successfully assigned session to " + coachFirstName + " " + coachLastName + "</h2>");
+                load_modal("Successfully assigned session to " + coachFirstName + " " + coachLastName);
               }
               else {
                 if(coachId == sessionCoachId) {
-                  $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + coachFirstName + " " + coachLastName + " is already assigned to this session! </h2>");
+                  load_modal(coachFirstName + " " + coachLastName + " is already assigned to this session!");
                 }
                 else {
-                $('#assign-modal').find(".content").replaceWith("<h2 class='content'>" + coachFirstName + " " + coachLastName + " is not available at this period </h2>");
+                  load_modal(coachFirstName + " " + coachLastName + " is not available at this period");
                 }
               }
               $('a.reveal-link').trigger('click');
